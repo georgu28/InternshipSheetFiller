@@ -85,10 +85,33 @@ You need:
 - The **Spreadsheet ID** (from the Sheet URL: between `/d/` and `/edit`)
 - A worksheet/tab name (defaults to `Applications`; created if missing)
 
+## Spreadsheet format (template)
+
+Your worksheet should have this header row (columns A–G), in this order:
+
+- `Company`
+- `Role`
+- `Link to Apply`
+- `Date Applied`
+- `OA sent`
+- `Interview Stage`
+- `Status`
+
+Allowed `Status` values:
+
+- `Applied`
+- `Not started`
+- `Rejected`
+- `Accepted`
+
+Template sheet you can copy:
+
+- `https://docs.google.com/spreadsheets/d/1lKWflP1LF6wcX4nBY_AHlxrr4TWCFazmjWLDmUuFa9o/edit?usp=sharing`
+
 Example:
 
 ```bash
-python spreadsheet_filler.py my_links.txt --spreadsheet-id YOUR_SHEET_ID --worksheet Applications
+python spreadsheet_filler.py my_links.txt --spreadsheet-id YOUR_SHEET_ID --worksheet Summer2027
 ```
 
 Useful options:
@@ -105,8 +128,4 @@ Dry run example:
 python spreadsheet_filler.py my_links.txt --spreadsheet-id YOUR_SHEET_ID --dry-run
 ```
 
-## Security notes
-
-- Treat `service_account.json` like a password. If you ever committed it, **rotate/revoke the key** in Google Cloud immediately.
-- Don’t paste the key into chat logs or commit it to any repository.
 
